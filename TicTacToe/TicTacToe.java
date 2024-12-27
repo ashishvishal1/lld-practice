@@ -284,8 +284,10 @@ class GameBoard {
                     break;
                 }
             }
-            if(isWinningRow)
+            if(isWinningRow) {
+                System.out.println("Wiiner from row");
                 return isWinningRow;
+            }
         }
         return false;
         
@@ -306,6 +308,7 @@ class GameBoard {
                 }
             }
             if(isWinningCol) {
+                System.out.println("Wiiner from col");
                 return isWinningCol;
             }
         }
@@ -329,6 +332,7 @@ class GameBoard {
                 return !isWinningDiagonal;
             }
         }
+        System.out.println("Winner as per DiagonalStartFromTopLeft");
         return isWinningDiagonal;
     }
 
@@ -344,11 +348,12 @@ class GameBoard {
                 return !isWinningDiagonal;
             }
         }
+        System.out.println("Winner as per DiagonalStartFromTopRight");
         return isWinningDiagonal;
     }
 
     private boolean isFilledBlock(int row, int col) {
-        return gameBoard.get(row).get(0)=='X' || gameBoard.get(row).get(0) == 'O';
+        return gameBoard.get(row).get(col)=='X' || gameBoard.get(row).get(col) == 'O';
     }
 
     public Character getWinnerCharacter() {
